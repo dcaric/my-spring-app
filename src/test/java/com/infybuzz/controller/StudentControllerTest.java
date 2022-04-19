@@ -47,9 +47,7 @@ class StudentControllerTest {
         Student RECORD_2 = new Student(34L, "dario2", "caric", "dario2.caric@gmail.com");
         studentList.add(RECORD_1);
         studentList.add(RECORD_2);
-
     }
-
 
     @Test
     void getAllStudents_successful_controller() throws Exception {

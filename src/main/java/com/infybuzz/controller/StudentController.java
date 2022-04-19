@@ -4,12 +4,15 @@ import com.infybuzz.entity.Student;
 import com.infybuzz.entity.StudentTypes.StudentSimple;
 import com.infybuzz.entity.StudentTypes.StudentSimpleClass;
 import com.infybuzz.service.StudentService;
+import com.lowagie.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -51,8 +54,13 @@ public class StudentController {
     }
 
     @GetMapping("/getById/{id}")
-    public Student getById(@PathVariable Long id) {
+    public Student getById(@PathVariable Long id) throws DocumentException, IOException {
         return studentService.getById(id);
+    }
+
+    @GetMapping("/getPdf/{name}")
+    public ResponseEntity<Resource> getPdf(@PathVariable String name) throws DocumentException, IOException {
+        return studentService.getPdf(name);
     }
 
     @PostMapping("/create")
