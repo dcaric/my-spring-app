@@ -52,7 +52,7 @@ class StudentControllerTest {
 
 
     @Test
-    void getAllStudents_successful() throws Exception {
+    void getAllStudents_successful_controller() throws Exception {
 
         when(studentService.getAllStudents()).thenReturn(studentList);
 

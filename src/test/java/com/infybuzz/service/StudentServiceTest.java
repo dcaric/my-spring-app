@@ -53,9 +53,6 @@ class StudentServiceTest {
     void tearDown() {
     }
 
-    @Test
-    void getAllStudents2() {
-    }
 
     @Test
     public void getAllStudents_successful_service() {
