@@ -4,7 +4,6 @@ import com.infybuzz.service.StudentService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,6 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import org.mockito.InjectMocks;
 
 /**
  * @author dcaric on 14/04/2022
@@ -30,8 +30,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class StudentControllerTest {
 
-    @InjectMocks
-    private StudentController studentController;
+    //@InjectMocks
+    //private StudentController studentController;
 
     @Autowired
     private MockMvc mockMvc;
@@ -60,8 +60,6 @@ class StudentControllerTest {
                 .andExpect(jsonPath("$", hasSize(2)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[1].firstName", is("dario2")));
-
-
     }
 
 }

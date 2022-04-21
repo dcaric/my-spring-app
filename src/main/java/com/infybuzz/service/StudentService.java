@@ -14,6 +14,7 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 import java.io.*;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -180,11 +181,12 @@ public class StudentService {
     }
 
     public String generatePdfFromHtml(String html) throws IOException, DocumentException {
-        String currentPath = new java.io.File(".").getCanonicalPath() + "classes/templates/";
+        String currentPath = new java.io.File(".").getCanonicalPath() + "/classes/templates/";
         System.out.println("currentPath: " + currentPath);
         String savedPath =  System.getProperty("user.dir");
 
-        String outputFile = savedPath + "thymeleaf.pdf";
+
+        String outputFile = savedPath + "/thymeleaf.pdf";
         System.out.println("outputFile: " + outputFile);
         OutputStream outputStream = new FileOutputStream(outputFile);
 
