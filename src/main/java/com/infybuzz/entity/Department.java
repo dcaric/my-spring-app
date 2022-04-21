@@ -19,7 +19,7 @@ public class Department {
     public String deptName;
 
 
-    //@OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+    //@OneToMany(mappedBy = 'department', cascade = CascadeType.ALL)
     //private List<Student> students;
 
     public Long getId() {

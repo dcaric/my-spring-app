@@ -50,6 +50,12 @@ class StudentServiceTest {
     @Test
     public void getAllStudents_successful_service() {
 
+        //Mockito.when(studentService.getAllStudents()).thenReturn(studentList);
+        //Mockito.when(studentRepository.findAll()).thenReturn(studentList);
+        //StudentService studentServiceMock = Mockito.mock(StudentService.class);
+        //StudentService checkObj = new StudentService();
+        //Mockito.doReturn(studentList).when(studentServiceMock).getAllStudents();
+
         // when findAll is called from repository
         when(studentRepository.findAll()).thenReturn(studentList);
 

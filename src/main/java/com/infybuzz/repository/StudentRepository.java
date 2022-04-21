@@ -24,7 +24,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     public List<String> findByNameLike(String firstName);
 
     @Query("SELECT t FROM Student t WHERE t.firstName LIKE %?1%")
-    //@Query(value = "SELECT first_name FROM student", nativeQuery = true)
+    //@Query(value = 'SELECT first_name FROM student', nativeQuery = true)
     public List<StudentSimple> findByNameLike2(String firstName);
 
 }
