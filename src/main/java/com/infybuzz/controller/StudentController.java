@@ -35,7 +35,6 @@ public class StudentController {
         return new ResponseEntity<>(studentService.getAllStudents2(), HttpStatus.OK);
     }
     */
-    
     public List<StudentSimple> getAllStudents2(@PathVariable String name) {
         return studentService.getAllStudents2(name);
     }
