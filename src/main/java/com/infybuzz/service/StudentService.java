@@ -69,13 +69,13 @@ public class StudentService {
             /*
             InputStreamResource resource = new InputStreamResource(new FileInputStream(outputFile));
             HttpHeaders headers = new HttpHeaders();
-            headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
-            headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS, "GET, POST, PUT");
-            headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS, "Content-Type");
-            headers.add(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, must-revalidate");
-            headers.add(HttpHeaders.PRAGMA, "no-cache");
-            headers.add(HttpHeaders.EXPIRES, "0");
-            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + "dario.pdf");
+            headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, '*');
+            headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS, 'GET, POST, PUT');
+            headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS, 'Content-Type');
+            headers.add(HttpHeaders.CACHE_CONTROL, 'no-cache, no-store, must-revalidate');
+            headers.add(HttpHeaders.PRAGMA, 'no-cache');
+            headers.add(HttpHeaders.EXPIRES, '0');
+            headers.add(HttpHeaders.CONTENT_DISPOSITION, 'attachment;filename=' + 'dario.pdf');
             headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_PDF_VALUE);
             return ResponseEntity.ok()
                     .headers(headers)

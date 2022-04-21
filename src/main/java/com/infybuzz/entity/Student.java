@@ -40,7 +40,7 @@ public class Student implements Serializable {
 
     }
 
-    //@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    //@OneToMany(mappedBy = 'student', cascade = CascadeType.ALL)
     //private List<SubjectsLearning> subjectsLearning;
 
     public Long getId() {

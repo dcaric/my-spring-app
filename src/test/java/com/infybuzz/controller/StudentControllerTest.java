@@ -6,6 +6,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.is;
@@ -23,6 +24,7 @@ import org.springframework.test.context.ActiveProfiles;
 //@RunWith(SpringRunner.class)
 @SpringBootTest(classes={com.infybuzz.app.SpringBootAppApplication.class})
 @ActiveProfiles("dev")
+@Sql(scripts={"classpath:db/schema.sql", "classpath:db/data.sql"})
 @AutoConfigureMockMvc
 class StudentControllerTest {
 
@@ -45,9 +47,9 @@ class StudentControllerTest {
         System.out.println("mockMvc: " + mockMvc);
         mockMvc.perform(get("/student/getAllStudents"))
                 .andDo(print())
-                .andExpect(jsonPath("$", hasSize(25)))
+                .andExpect(jsonPath("$", hasSize(31)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[1].firstName", is("dario2")));
+                .andExpect(jsonPath("$[25].firstName", is("darth")));
     }
 
 }
