@@ -40,17 +40,9 @@ public class StudentController {
     }
     @GetMapping("/getAllStudents")
     public List<Student> getAllStudents() {
-        System.out.println("getAllStudents");
-
-        Student RECORD_1 = new Student(33L, "dario1", "caric", "dario1.caric@gmail.com");
-        Student RECORD_2 = new Student(34L, "dario2", "caric", "dario2.caric@gmail.com");
-        List<Student> records = new ArrayList<>(Arrays.asList(RECORD_1, RECORD_2));
-        System.out.println("All students: " + records);
-        return records.size() > 0 ? records : List.of();
-
-        //List<Student> allStudents = studentService.getAllStudents();
-
-        //return allStudents.size() > 0 ? allStudents: List.of();
+        List<Student> allStudents = studentService.getAllStudents();
+        System.out.println("getAllStudents:" + allStudents.size());
+        return allStudents.size() > 0 ? allStudents: List.of();
     }
 
     @GetMapping("/getById/{id}")

@@ -36,8 +36,9 @@ public class StudentService {
 
 
     public List<Student> getAllStudents() {
-        System.out.println("FINDALL");
-        return studentRepository.findAll();
+        List<Student> allStudents = studentRepository.findAll();
+        System.out.println("allStudents:" + allStudents.size());
+        return allStudents;
     }
 
     public List<StudentSimple> getAllStudents2(String name) {
