@@ -16,11 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.test.web.servlet.MockMvc;
-import org.mockito.MockitoAnnotations;
-import java.util.Arrays;
+
 
 @RunWith(MockitoJUnitRunner.class)
 @ExtendWith(MockitoExtension.class)
@@ -49,14 +45,6 @@ class StudentServiceTest {
 
     @Test
     public void getAllStudents_successful_service() {
-
-        //Mockito.when(studentService.getAllStudents()).thenReturn(studentList);
-        //Mockito.when(studentRepository.findAll()).thenReturn(studentList);
-        //StudentService studentServiceMock = Mockito.mock(StudentService.class);
-        //StudentService checkObj = new StudentService();
-        //Mockito.doReturn(studentList).when(studentServiceMock).getAllStudents();
-
-        // when findAll is called from repository
         when(studentRepository.findAll()).thenReturn(studentList);
 
         // start test and save result in studentList
