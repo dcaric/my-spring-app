@@ -10,12 +10,13 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
-
+import com.infybuzz.helperClasses.ExportToXls;
 // jjwt token
 
 
@@ -33,6 +34,7 @@ public class StudentController {
     private Authentication authentication = new Authentication();
 
     @GetMapping("/getAllStudents2/{name}")
+    @Async
     public List<StudentSimple> getAllStudents2(@PathVariable String name) {
         return studentService.getAllStudents2(name);
     }
@@ -60,6 +62,23 @@ public class StudentController {
     @GetMapping("/getPdf/{name}")
     public ResponseEntity<Resource> getPdf(@PathVariable String name) throws DocumentException, IOException {
         return studentService.getPdf(name);
+    }
+
+    @GetMapping("/getXls/{name}")
+    public void getXls(@PathVariable String name, HttpServletResponse response) throws DocumentException, IOException {
+
+        response.setContentType("application/octet-stream");
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; file-name=student.xls";
+        response.setHeader(headerKey, headerValue);
+
+        List<StudentSimple> data = studentService.getAllStudents2(name);
+        try {
+            ExportToXls employeeExcelExporter = new ExportToXls(data);
+            employeeExcelExporter.export(response);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @PostMapping("/create")
